@@ -20,7 +20,6 @@ object ChromeSbtPlugin extends AutoPlugin {
     val fullOptJsLib = TaskKey[Attributed[File]]("fullOptJsLib")
     val fastOptJsLib = TaskKey[Attributed[File]]("fastOptJsLib")
 
-
     lazy val baseSettings: Seq[Def.Setting[_]] = Seq(
       fastOptJsLib := (fastOptJS in Compile).value,
       chromeUnpackedFast := {

@@ -88,6 +88,12 @@ object Commands {
 
 case class Oauth2Settings(clientId: String, scopes: List[String])
 
+case class ContentScript(
+  matches: List[String],
+  css: List[String],
+  js: List[String]
+)
+
 trait AppManifest extends chrome.Manifest {
   val app: chrome.App
   val sockets: Option[Sockets] = None
@@ -98,6 +104,7 @@ trait AppManifest extends chrome.Manifest {
 
 trait ExtensionManifest extends chrome.Manifest {
   val background: Background
+  val contentScripts: List[ContentScript] = Nil
   val browserAction: Option[BrowserAction] = None
   val omnibox: Option[Omnibox] = None
   val optionsUI: Option[OptionsUI] = None
